@@ -6,7 +6,7 @@ import cors from 'cors';
 
 dotenv.config();
 const app = express();
-console.log('MONGODB_URI:', process.env.MONGODB_URI);
+
 app.use(cors({
     exposedHeaders: ['X-Total-Count']
   }));
@@ -19,7 +19,8 @@ connect(uri, {})
     })
     .catch((err) => {
         console.error('MongoDB connection error:', err);
-    });;
+    });
+
 
 app.use(express.json());
 // app.use(morgan('dev'));

@@ -19,10 +19,12 @@ const todoSchema: Schema = new Schema({
 });
 
 const ToDoModel = model<Todo & Document>('todo', todoSchema);
-const todo = new ToDoModel({
-  content: 'Do the dishes',
-    completed: false,
-});
-todo.save();
+
+// dummy data
+// const todo = new ToDoModel({
+//   content: 'Do the dishes',
+//     completed: false,
+// });
+// todo.save();
 
 export default ToDoModel;

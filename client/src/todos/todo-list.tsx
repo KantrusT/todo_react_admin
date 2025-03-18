@@ -1,9 +1,9 @@
-import { List, Datagrid, TextField, BooleanField, DateField } from 'react-admin';
+import { List, Datagrid, TextField, BooleanField} from 'react-admin';
 
 export const TodoList = () => (
     <List>
         <Datagrid>
-            {/* <TextField source="id" /> */}
+            {/* <ReferenceField source="id" reference="todo" /> */}
             <TextField source="content" />
             <BooleanField source="completed" />
             {/* <DateField source="__v" /> */}
