@@ -14,7 +14,8 @@ const todoSchema: Schema = new Schema({
   },
   completed: {
     type: Boolean,
-    required: true,
+    default: false,
+    // required: false,
   },
 });
 
