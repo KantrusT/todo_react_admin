@@ -1,5 +1,5 @@
 import Button from '@mui/material/Button';
-import { TopToolbar, Create, SimpleForm, TextInput } from 'react-admin';
+import { useNotify, useRedirect, TopToolbar, Create, SimpleForm, TextInput } from 'react-admin';
 
 const TodoCreateActions = () => (
     <TopToolbar>
@@ -8,14 +8,24 @@ const TodoCreateActions = () => (
     </TopToolbar>
 );
 
-export const todoCreate = () => (
-    <Create actions={<TodoCreateActions />}>
-        <SimpleForm>
-            <TextInput source="content" multiline={true} label="What's up today?"/>
-            {/* input initially renders with value 123 (form > input) */}
-        </SimpleForm>
-    </Create>
-);
+export const ToDoCreate = () => {
+    const notify = useNotify();
+    const redirect = useRedirect();
+    
+    const onSuccess = () => {
+        notify(`New task added!`);
+        redirect('/todo');
+    };
+
+    return (
+        <Create actions={<TodoCreateActions />} mutationOptions={{ onSuccess }}>
+            <SimpleForm>
+                <TextInput source="content" multiline={true} label="What is your plan?"/>
+                {/* input initially renders with value 123 (form > input) */}
+            </SimpleForm>
+        </Create>
+    );
+};
 
 function customAction(): void {
     console.log('Function not implemented.');
